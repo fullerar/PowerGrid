@@ -1,0 +1,24 @@
+# If unsure, run:
+# pip freeze > requirements.txt
+# then
+# pip install -r requirements.txt
+
+
+
+# Requests is used for making API calls
+requests
+
+# Matplotlib for data visualization
+matplotlib
+
+# Scikit-learn for machine learning models
+scikit-learn
+
+# Pandas for data handling and manipulation
+pandas
+
+# Plotly for creating interactive plots
+plotly
+
+# installed with pip
+notification
