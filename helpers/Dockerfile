@@ -5,7 +5,6 @@ RUN apt-get update && apt-get install -y \
     build-essential \
     python3-dev \
     python3-distutils \
-    python-tk \
     gfortran \
     libtk8.6 \
     tk \
@@ -14,7 +13,9 @@ RUN apt-get update && apt-get install -y \
     libjpeg8-dev \
     liblcms2-dev \
     libblas-dev \
-    liblapack-dev
+    liblapack-dev \
+    tk-dev \
+    libpng-dev
 
 # Set working directory inside container
 WORKDIR /app
