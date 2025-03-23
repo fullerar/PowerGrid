@@ -1,7 +1,14 @@
 FROM python:3.8-slim
 
-# Install system build tools, including gfortran
-RUN apt-get update && apt-get install -y build-essential python3-dev gfortran python3-distutils
+# Install system dependencies for Tkinter and other build tools
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    python3-dev \
+    python3-distutils \
+    gfortran \
+    libtk8.6 \
+    tk \
+    libx11-dev
 
 # Set working directory inside container
 WORKDIR /app
@@ -9,7 +16,7 @@ WORKDIR /app
 # Copy the requirements.txt file
 COPY requirements.txt .
 
-# Install dependencies
+# Install Python dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy the application code
