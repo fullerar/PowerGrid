@@ -33,6 +33,7 @@ scikit-learn
 scipy
 sip
 six
+tabulate
 tenacity
 threadpoolctl
 tomli

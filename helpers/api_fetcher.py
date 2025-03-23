@@ -17,7 +17,7 @@ def fetch_grid_data():
             data = response.json()
 
             # Print the raw JSON data to the console
-            print("Latest Raw API Response:", data)
+            # print("Latest Raw API Response:", data)
 
             return data
         else:
