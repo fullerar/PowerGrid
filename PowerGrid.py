@@ -1,5 +1,7 @@
 from tabulate import tabulate
-
+import logging
+import time
+import threading
 from helpers.api_fetcher import fetch_grid_data, fetch_historical_grid_data
 
 
@@ -32,17 +34,20 @@ def display_data():
         print("Error: Could not fetch power grid data.")
 
 
-# Function to refresh and show the data in the console
-def refresh_data():
-    display_data()
-
+# Function to refresh and display data every 30 seconds
+def refresh_data_periodically():
+    while True:
+        display_data()
+        time.sleep(30)  # Wait for 30 seconds before refreshing
 
 # Main logic to run the program
 if __name__ == "__main__":
-    # Display initial data
-    display_data()
+    logging.basicConfig(level=logging.INFO)
 
-    # Simulate user action to refresh data (e.g., user presses a button)
-    # Here, we just call refresh_data after a short delay
-    input("\nPress Enter to refresh data...\n")
-    refresh_data()
+    # Start the background thread to refresh data
+    refresh_thread = threading.Thread(target=refresh_data_periodically, daemon=True)
+    refresh_thread.start()
+
+    # Keep the main program running (you can also add a stop condition if necessary)
+    while True:
+        time.sleep(1)  # Keeps the main thread alive

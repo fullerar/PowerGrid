@@ -3,41 +3,9 @@
 # then
 # pip install -r requirements.txt
 
-numpy
-
-bottleneck
-brotli
-certifi
-cffi
-charset-normalizer
-cryptography
-cycler
-fonttools
-idna
-joblib
-kiwisolver
-matplotlib
-mkl-fft
-mkl-random
-mkl-service
-notification
-pandas
-pillow
-plotly
-ply
-pycparser
-pyOpenSSL
-pyparsing
+logging
 requests
-scikit-learn
-scipy
-sip
-six
 tabulate
-tenacity
-threadpoolctl
-tomli
-tornado
-urllib3
-win-inet-pton
+time
+threading
 
