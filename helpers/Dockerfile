@@ -1,4 +1,4 @@
-FROM python:3.8-slim
+FROM python:3.8
 
 # Install system dependencies for Tkinter and other build tools
 RUN apt-get update && apt-get install -y \
