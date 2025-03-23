@@ -30,7 +30,7 @@ pyOpenSSL==21.0.0
 pyparsing==3.0.6
 requests==2.32.3
 scikit-learn
-scipy==1.9.3
+scipy
 sip>=6.7.9
 six==1.16.0
 tenacity==8.0.1
