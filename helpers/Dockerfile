@@ -8,7 +8,12 @@ RUN apt-get update && apt-get install -y \
     gfortran \
     libtk8.6 \
     tk \
-    libx11-dev
+    libx11-dev \
+    libxtst-dev \
+    libjpeg8-dev \
+    liblcms2-dev \
+    libblas-dev \
+    liblapack-dev
 
 # Set working directory inside container
 WORKDIR /app
