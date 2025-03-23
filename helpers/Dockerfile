@@ -1,7 +1,7 @@
 FROM python:3.8-slim
 
 # Install system build tools, including gfortran
-RUN apt-get update && apt-get install -y build-essential python3-dev gfortran
+RUN apt-get update && apt-get install -y build-essential python3-dev gfortran python3-distutils
 
 # Set working directory inside container
 WORKDIR /app
