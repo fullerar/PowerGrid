@@ -1,18 +1,19 @@
-# Start with a base image that has Python
 FROM python:3.8-slim
 
-# Set the working directory inside the container
-WORKDIR /app
-
-# Install necessary build tools (if required)
+# Install system build tools
 RUN apt-get update && apt-get install -y build-essential python3-dev
 
-# Copy the requirements.txt file and install dependencies
+# Set working directory inside container
+WORKDIR /app
+
+# Copy the requirements.txt file
 COPY requirements.txt .
+
+# Install dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy the rest of the application code
+# Copy the application code
 COPY . .
 
-# Define the command to run the application
+# Define command to run the app
 CMD ["python", "PowerGrid.py"]
