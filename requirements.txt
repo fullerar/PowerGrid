@@ -6,6 +6,5 @@
 logging
 requests
 tabulate
-time
 threading
 
