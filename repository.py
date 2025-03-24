@@ -51,8 +51,7 @@ def power_grid_data_pipeline():
         display_data(df)
 
 
-# Define a schedule to run the job periodically (every 30 seconds)
-@schedule(cron_schedule="*/30 * * * *", job=power_grid_data_pipeline)  # Ensure job is specified
+@schedule(cron_schedule="* * * * *", job=power_grid_data_pipeline)  # Run every minute
 def my_scheduled_job(context):
     return power_grid_data_pipeline()
 
