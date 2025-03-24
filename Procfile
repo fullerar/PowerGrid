@@ -1,1 +1,1 @@
-web: python repository.py
+web: dagster dev --repository my_repository
