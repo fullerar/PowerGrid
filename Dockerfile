@@ -11,15 +11,14 @@ RUN apt-get update && apt-get install -y \
     libssl-dev \
     && apt-get clean
 
+# Upgrade pip to the latest version
+RUN pip install --upgrade pip
+
 # Install Rust using rustup (with the option to include the Rust toolchain and cargo)
 RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 
 # Add Rust and Cargo to the PATH environment
 RUN echo 'export PATH="$HOME/.cargo/bin:$PATH"' >> /etc/profile.d/rust.sh
-
-# Check if Rust and Cargo are installed
-RUN rustc --version
-RUN cargo --version
 
 # Install dependencies for your app
 COPY requirements.txt /app/
