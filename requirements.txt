@@ -9,6 +9,6 @@
 requests
 tabulate
 pandas
-gunicorn
 dagster
 dagster-webserver
+gunicorn
