@@ -1,7 +1,7 @@
 # Use a Python base image
 FROM python:3.8-slim
 
-# Install Rust, Cargo, and required tools
+# Install required system packages and Rust
 RUN apt-get update && apt-get install -y \
     curl \
     build-essential \
@@ -16,10 +16,10 @@ RUN apt-get update && apt-get install -y \
 # Upgrade pip to the latest version
 RUN pip install --upgrade pip
 
-# Install dependencies for your app
+# Install dependencies for your app, using precompiled wheels to avoid building from source
 COPY requirements.txt /app/
 WORKDIR /app
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt --only-binary :all:
 
 # Copy the application files
 COPY . /app/

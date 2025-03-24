@@ -3,6 +3,9 @@
 # then
 # pip install -r requirements.txt
 
+# Force pip to install precompiled binaries for all dependencies
+--only-binary :all:
+
 requests
 logging
 tabulate
