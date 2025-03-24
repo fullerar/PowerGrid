@@ -1,1 +1,1 @@
-web: dagster dev --repository my_repository
+web: dagster daemon run
