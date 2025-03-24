@@ -3,6 +3,8 @@
 # then
 # pip install -r requirements.txt
 
-logging
 requests
+logging
 tabulate
+pandas
+dagster
