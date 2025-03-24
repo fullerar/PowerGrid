@@ -11,4 +11,4 @@ tabulate
 pandas
 dagster
 dagster-webserver
-pendulum
+pendulum==2.1.1

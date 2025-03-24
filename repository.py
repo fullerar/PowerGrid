@@ -3,10 +3,6 @@ import requests
 import pandas as pd
 from tabulate import tabulate
 from dagster import op, job, schedule, repository
-import time
-
-
-start_time = time.time()  # Returns the current time in seconds since the epoch
 
 
 # Define your operations (ops)
