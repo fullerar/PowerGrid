@@ -1,33 +1,29 @@
-FROM python:3.8
+# Use a Python base image
+FROM python:3.8-slim
 
-# Install system dependencies for Tkinter and other build tools
+# Install curl, build-essential, and other required tools
 RUN apt-get update && apt-get install -y \
+    curl \
     build-essential \
     python3-dev \
-    python3-distutils \
-    gfortran \
-    libtk8.6 \
-    tk \
-    libx11-dev \
-    libxtst-dev \
-    libjpeg8-dev \
-    liblcms2-dev \
-    libblas-dev \
-    liblapack-dev \
-    tk-dev \
-    libpng-dev
+    python3-pip \
+    python3-setuptools \
+    libssl-dev \
+    && apt-get clean
 
-# Set working directory inside container
+# Install Rust using rustup
+RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+
+# Set up Cargo environment
+RUN echo 'export PATH="$HOME/.cargo/bin:$PATH"' >> ~/.bashrc
+
+# Install dependencies for your app
+COPY requirements.txt /app/
 WORKDIR /app
-
-# Copy the requirements.txt file
-COPY requirements.txt .
-
-# Install Python dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy the application code
-COPY . .
+# Copy the application files
+COPY . /app/
 
 # Start your application
 CMD ["python", "repository.py"]
