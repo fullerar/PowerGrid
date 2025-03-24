@@ -7,7 +7,6 @@
 --only-binary :all:
 
 requests
-logging
 tabulate
 pandas
 dagster
