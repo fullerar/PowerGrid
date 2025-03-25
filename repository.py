@@ -1,65 +1,27 @@
-import logging
-import requests
+# app.py
+from flask import Flask, render_template_string
 import pandas as pd
-from tabulate import tabulate
-from dagster import op, job, schedule, repository
+import requests
+
+app = Flask(__name__)
 
 
-# Define your operations (ops)
-@op
-def fetch_grid_data():
+@app.route('/')
+def show_data():
     api_url = "https://api.electricitymap.org/v3/power-breakdown/latest?zone=US-MIDA-PJM"
-    headers = {
-        "auth-token": "nztSjedCFYMxcA05Odpl"
-    }
-    try:
-        response = requests.get(api_url, headers=headers)
-        response.raise_for_status()
-        return response.json()
-    except requests.exceptions.RequestException as e:
-        logging.error(f"Error fetching data: {e}")
-        return None
+    headers = {"auth-token": "nztSjedCFYMxcA05Odpl"}
+
+    response = requests.get(api_url, headers=headers)
+    data = response.json()
+    energy_mix = data['powerConsumptionBreakdown']
+    df = pd.DataFrame(list(energy_mix.items()), columns=["Energy Source", "Power Consumption (MW)"])
+
+    # Convert DataFrame to HTML table
+    return render_template_string("""
+        <h2>Power Grid Data</h2>
+        {{ table|safe }}
+    """, table=df.to_html(index=False, border=0, classes='dataframe table table-striped'))
 
 
-@op
-def process_data_with_pandas(data):
-    if data is None:
-        raise ValueError("No data received from the fetch operation.")
-
-    # Example: Process data with Pandas and return as a DataFrame
-    try:
-        energy_mix = data['powerConsumptionBreakdown']
-        df = pd.DataFrame(list(energy_mix.items()), columns=["Energy Source", "Power Consumption (MW)"])
-        return df
-    except KeyError as e:
-        raise ValueError(f"Missing expected key in data: {e}")
-
-
-@op
-def display_data(df):
-    # Format the DataFrame as a table and print it
-    print("\nPower Grid Data Processed with Pandas:\n")
-    print(tabulate(df, headers="keys", tablefmt="grid"))
-
-
-# Define the job that ties all the ops together
-@job
-def power_grid_data_pipeline():
-    data = fetch_grid_data()
-    if data:
-        df = process_data_with_pandas(data)
-        display_data(df)
-
-
-@schedule(cron_schedule="* * * * *", job=power_grid_data_pipeline)  # Run every minute
-def my_scheduled_job(context):
-    return power_grid_data_pipeline()
-
-
-# Define a repository for Dagster
-@repository
-def my_repository():
-    return [
-        power_grid_data_pipeline,   # Add the job to the repository
-        my_scheduled_job           # Add the schedule to the repository
-    ]
+if __name__ == '__main__':
+    app.run(debug=True)

@@ -3,13 +3,7 @@
 # then
 # pip install -r requirements.txt
 
-# Force pip to install precompiled binaries for all dependencies
---only-binary :all:
-
-requests
-tabulate
+Flask
 pandas
-dagster
-dagster-webserver
+requests
 gunicorn
-pendulum==2.1.0
