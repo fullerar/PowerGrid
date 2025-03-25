@@ -1,2 +1,2 @@
-web: dagster dev
+web: dagster-webserver
 worker: dagster job execute -f repository.py -j power_grid_data_pipeline
