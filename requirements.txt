@@ -12,3 +12,4 @@ pandas
 dagster
 dagster-webserver
 gunicorn
+pydantic
