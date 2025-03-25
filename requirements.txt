@@ -10,3 +10,5 @@ requests
 tabulate
 pandas
 dagster
+dagster-webserver
+gunicorn
