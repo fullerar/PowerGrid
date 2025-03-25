@@ -1,0 +1,20 @@
+{
+  "name": "PowerGrid",
+  "description": "A personal project to learn heroku",
+  "repository": "https://github.com/fullerar/PowerGrid.git",
+  "website": "https://devcenter.heroku.com/articles/getting-started-with-python",
+  "keywords": ["python", "django"],
+  "env": {
+    "DJANGO_SECRET_KEY": {
+      "description": "The secret key for the Django application.",
+      "generator": "secret"
+    }
+  },
+  "environments": {
+    "test": {
+      "scripts": {
+        "test": "./manage.py test --debug-mode"
+      }
+    }
+  }
+}
