@@ -12,3 +12,4 @@ pandas
 dagster
 dagster-webserver
 gunicorn
+pendulum==2.1.0

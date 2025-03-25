@@ -1,3 +1,3 @@
-web: mkdir -p /tmp/dagster_home && touch /tmp/dagster_home/dagster.yaml && dagster-webserver
+web: gunicorn wsgi:app
 
 worker: dagster job execute -f repository.py -j power_grid_data_pipeline
