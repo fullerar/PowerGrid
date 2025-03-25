@@ -1,1 +1,1 @@
-web: gunicorn powerGrid
+web: gunicorn dagster-webserver
