@@ -1,20 +1,23 @@
 {
-  "name": "PowerGrid",
-  "description": "A personal project to learn heroku",
-  "repository": "https://github.com/fullerar/PowerGrid.git",
-  "website": "https://devcenter.heroku.com/articles/getting-started-with-python",
-  "keywords": ["python", "django"],
-  "env": {
-    "DJANGO_SECRET_KEY": {
-      "description": "The secret key for the Django application.",
-      "generator": "secret"
-    }
+  "name": "PowerGrid-Deployment",
+  "description": "Dagster power grid data processing",
+  "scripts": {
+    "postdeploy": "dagster job execute -f repository.py -j power_grid_data_pipeline"
   },
-  "environments": {
-    "test": {
-      "scripts": {
-        "test": "./manage.py test --debug-mode"
-      }
+  "env": {
+    "DAGSTER_HOME": "/app/dagster_home"
+  },
+  "addons": [
+    {
+      "plan": "heroku-postgresql"
     }
-  }
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/python"
+    },
+    {
+      "url": "https://github.com/heroku/heroku-buildpack-pipenv"
+    }
+  ]
 }
