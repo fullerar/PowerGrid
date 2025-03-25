@@ -4,6 +4,8 @@
 # pip install -r requirements.txt
 
 Flask
+flask-graphql
 pandas
 requests
 gunicorn
+graphene

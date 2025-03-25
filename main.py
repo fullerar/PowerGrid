@@ -1,9 +1,20 @@
 # app.py
 from flask import Flask, render_template_string
+from flask_graphql import GraphQLView
+from schema import schema
 import pandas as pd
 import requests
 
 app = Flask(__name__)
+# Add GraphQL endpoint
+app.add_url_rule(
+    "/graphql",
+    view_func=GraphQLView.as_view("graphql", schema=schema, graphiql=True)
+)
+
+@app.route('/')
+def home():
+    return "<h2>Welcome — go to <a href='/graphql'>/graphql</a> to explore the API</h2>"
 
 
 @app.route('/')
