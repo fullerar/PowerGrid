@@ -5,6 +5,7 @@
 
 Flask
 flask-graphql
+flask-cors
 pandas
 requests
 gunicorn

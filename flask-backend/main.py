@@ -1,9 +1,11 @@
 # app.py
 from flask import Flask, render_template_string
 from flask_graphql import GraphQLView
+from flask_cors import CORS
 from schema import schema
 import pandas as pd
 import requests
+
 
 app = Flask(__name__)
 # Add GraphQL endpoint
@@ -11,6 +13,8 @@ app.add_url_rule(
     "/graphql",
     view_func=GraphQLView.as_view("graphql", schema=schema, graphiql=True)
 )
+
+CORS(app)
 
 @app.route('/')
 def home():
