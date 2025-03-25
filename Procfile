@@ -1,1 +1,1 @@
-web: gunicorn powerGrid:app
+web: gunicorn powerGrid
