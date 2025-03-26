@@ -22,7 +22,14 @@ function App() {
         padding: '2rem',
         fontFamily: 'Arial, sans-serif'
       }}>
-        <h2 style={{ marginBottom: '2rem' }}>⚡ Power Grid Dashboard</h2>
+        <h2 style={{
+              marginBottom: '2rem',
+              textAlign: 'center',
+              fontSize: '2rem',
+              fontWeight: '600'
+            }}>
+              ⚡ Power Grid Dashboard
+            </h2>
         <PowerSearch />
         <HistoricalChart />
       </div>
