@@ -5,6 +5,7 @@ import {
   ApolloProvider
 } from '@apollo/client';
 import PowerSearch from './components/PowerSearch';
+import HistoricalChart from './components/HistoricalChart';
 
 const client = new ApolloClient({
   uri: "https://power-grid-20fa5a2c3507.herokuapp.com/graphql",
@@ -17,6 +18,7 @@ function App() {
       <div className="App">
         <h2>Power Grid Dashboard ⚡</h2>
         <PowerSearch />
+        <HistoricalChart />
       </div>
     </ApolloProvider>
   );

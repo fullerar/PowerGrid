@@ -8,3 +8,13 @@ export const GET_SOURCES = gql`
     }
   }
 `;
+
+export const GET_HISTORICAL = gql`
+  query {
+    historicalSources {
+      datetime
+      source
+      power
+    }
+  }
+`;
