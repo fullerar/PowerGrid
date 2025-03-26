@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { useQuery } from '@apollo/client';
 import { GET_SOURCES } from '../graphql/queries';
+import LatestChart from './LatestChart';
 
 function PowerSearch() {
   const [filter, setFilter] = useState('');
@@ -30,26 +31,30 @@ function PowerSearch() {
       {loading && <p>Loading...</p>}
       {error && <p>Error loading data 😢</p>}
 
-      {data && data.sources.length > 0 ? (
-        <table>
-          <thead>
-            <tr>
-              <th>Energy Source</th>
-              <th>Power (MW)</th>
-            </tr>
-          </thead>
-          <tbody>
-            {data.sources.map((source) => (
-              <tr key={source.name}>
-                <td>{source.name}</td>
-                <td>{source.power}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      ) : (
-        !loading && <p>No results found.</p>
-      )}
+        {data && data.sources.length > 0 ? (
+          <>
+            <LatestChart data={data.sources} />
+
+            <table>
+              <thead>
+                <tr>
+                  <th>Energy Source</th>
+                  <th>Power (MW)</th>
+                </tr>
+              </thead>
+              <tbody>
+                {data.sources.map((source) => (
+                  <tr key={source.name}>
+                    <td>{source.name}</td>
+                    <td>{source.power}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </>
+        ) : (
+          !loading && <p>No results found.</p>
+        )}
     </div>
   );
 }
