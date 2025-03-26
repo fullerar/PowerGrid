@@ -15,8 +15,14 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-      <div className="App">
-        <h2>Power Grid Dashboard ⚡</h2>
+      <div style={{
+        backgroundColor: '#121212',
+        color: '#f0f0f0',
+        minHeight: '100vh',
+        padding: '2rem',
+        fontFamily: 'Arial, sans-serif'
+      }}>
+        <h2 style={{ marginBottom: '2rem' }}>⚡ Power Grid Dashboard</h2>
         <PowerSearch />
         <HistoricalChart />
       </div>

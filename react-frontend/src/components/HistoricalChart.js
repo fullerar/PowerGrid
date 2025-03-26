@@ -33,7 +33,12 @@ function HistoricalChart() {
   );
 
   return (
-    <div style={{ width: '100%', height: 400, marginTop: '2rem' }}>
+    <div style={{
+          backgroundColor: '#1f1f1f',
+          padding: '1rem',
+          borderRadius: '8px',
+          marginTop: '2rem'
+        }}>
       <h4>📈 Power Trends Over Last 24 Hours</h4>
       <ResponsiveContainer>
         <LineChart data={formattedData}>
