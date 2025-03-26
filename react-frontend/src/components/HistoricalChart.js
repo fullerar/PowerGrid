@@ -22,11 +22,6 @@ function formatHistoricalData(rawData) {
 function HistoricalChart() {
   const { loading, error, data } = useQuery(GET_HISTORICAL);
 
-  console.log("🚀 HistoricalChart is rendering");
-console.log("📦 Data:", data);
-console.log("⏳ Loading:", loading);
-console.log("💥 Error:", error);
-
   if (loading) return <p>Loading historical data...</p>;
   if (error) return <p>Error loading historical data.</p>;
 
@@ -52,7 +47,7 @@ console.log("💥 Error:", error);
               key={source}
               type="monotone"
               dataKey={source}
-              stroke="#"+((1<<24)*Math.random()|0).toString(16)  // random color
+              stroke={"#" + ((1 << 24) * Math.random() | 0).toString(16).padStart(6, '0')}
               dot={false}
             />
           ))}
