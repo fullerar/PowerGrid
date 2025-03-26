@@ -22,6 +22,11 @@ function formatHistoricalData(rawData) {
 function HistoricalChart() {
   const { loading, error, data } = useQuery(GET_HISTORICAL);
 
+  console.log("🚀 HistoricalChart is rendering");
+console.log("📦 Data:", data);
+console.log("⏳ Loading:", loading);
+console.log("💥 Error:", error);
+
   if (loading) return <p>Loading historical data...</p>;
   if (error) return <p>Error loading historical data.</p>;
 
