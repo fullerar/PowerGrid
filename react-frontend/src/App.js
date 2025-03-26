@@ -16,7 +16,7 @@ function App() {
     <ApolloProvider client={client}>
       <div className="App">
         <h2>Power Grid Dashboard ⚡</h2>
-        <PowerList />
+        <PowerSearch />
       </div>
     </ApolloProvider>
   );
