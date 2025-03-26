@@ -11,7 +11,8 @@ function LatestChart({ data }) {
           backgroundColor: '#1f1f1f',
           padding: '1rem',
           borderRadius: '8px',
-          marginTop: '2rem'
+          marginTop: '2rem',
+          height: '400px'
         }}>
       <h4>⚡ Energy Mix (Latest)</h4>
       <ResponsiveContainer width="100%" height="100%">
