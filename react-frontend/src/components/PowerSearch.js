@@ -24,7 +24,7 @@ function PowerSearch() {
             <p>You can view specific power sources by name. Try searching for <i>wind</i>, <i>solar</i>, or <i>nuclear</i>.</p>
           </div>
 
-          <div style={{ flex: 1 }}>
+          <div style={{ flex: 1, minWidth: '350px' }}>
             <LatestChart data={data?.sources || []} />
           </div>
         </div>
