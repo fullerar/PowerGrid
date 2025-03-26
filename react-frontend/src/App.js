@@ -4,10 +4,9 @@ import {
   InMemoryCache,
   ApolloProvider
 } from '@apollo/client';
-import PowerList from './components/PowerList';
+import PowerSearch from './components/PowerSearch';
 
 const client = new ApolloClient({
-  // uri: "http://localhost:5000/graphql", // or your Heroku URL
   uri: "https://power-grid-20fa5a2c3507.herokuapp.com/graphql",
   cache: new InMemoryCache()
 });
