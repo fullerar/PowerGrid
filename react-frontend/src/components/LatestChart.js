@@ -7,9 +7,9 @@ function LatestChart({ data }) {
   if (!data || data.length === 0) return <p>No data available for chart.</p>;
 
   return (
-    <div style={{ width: '100%', height: 300 }}>
+    <div style={{ width: '100%', height: 400 }}>
       <h4>⚡ Energy Mix (Latest)</h4>
-      <ResponsiveContainer width="100%" height={300}>
+      <ResponsiveContainer width="100%" height="100%">
         <BarChart data={data} layout="vertical" margin={{ top: 5, right: 30, left: 80, bottom: 5 }}>
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis type="number" label={{ value: 'MW', position: 'insideBottomRight', offset: -5 }} />
