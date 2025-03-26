@@ -4,7 +4,18 @@ A full-stack project for visualizing real-time power grid data. It combines a Fl
 
 ---
 
-## Tech Stack
+## 📁 Repository Structure
+
+This project is split into **two separate GitHub repositories**:
+
+- **Frontend:** [`PowerGrid`](https://github.com/your-username/PowerGrid) — contains the React dashboard
+- **Backend:** [`PowerGridBackend`](https://github.com/your-username/PowerGridBackend) — contains the Flask + GraphQL API
+
+You can clone them into sibling folders or nest the backend inside the frontend project as needed.
+
+---
+
+## 🚀 Tech Stack
 
 ### Backend:
 - Python
@@ -20,11 +31,11 @@ A full-stack project for visualizing real-time power grid data. It combines a Fl
 
 ---
 
-## Project Structure
+## 🔧 Project Structure
 
 ```
-PowerGrid/                  # Main project folder
-├── flask-backend/          # Backend repo (also deployed to Heroku)
+PowerGrid/                  # Main frontend repo
+├── flask-backend/          # Cloned backend repo (PowerGridBackend)
 │   ├── main.py             # Flask entry point
 │   ├── schema.py           # GraphQL schema with data fetching & caching
 │   ├── requirements.txt    # Python dependencies
@@ -41,12 +52,12 @@ PowerGrid/                  # Main project folder
 
 ---
 
-## Live Deployment Workflow
+## 🌐 Live Deployment Workflow
 
 ### Backend (Heroku):
 - Flask app is hosted on Heroku.
-- GraphQL endpoint is available at: `https://your-heroku-backend.herokuapp.com/graphql`
-- Automatically deployed via GitHub connection.
+- GraphQL endpoint is available at: `https://power-grid-20fa5a2c3507.herokuapp.com/`
+- Automatically deployed via GitHub connection to `PowerGridBackend` repo.
 
 ### Frontend (React):
 - Hosted on Netlify (or Vercel).
@@ -62,14 +73,13 @@ const client = new ApolloClient({
 
 ---
 
-## Features Implemented
+## ⚙️ Features Implemented
 
 ### Backend:
 - Power grid data fetched from ElectricityMap API
 - Data processed with `pandas`
 - GraphQL API built with `graphene`
 - Supports filtering by energy source via query variables
-- Simple in-memory caching (~5 minutes)
 - Flask CORS enabled to allow frontend communication
 
 ### Frontend:
@@ -79,7 +89,7 @@ const client = new ApolloClient({
 
 ---
 
-## Cloning & Running
+## ✈️ Cloning & Running
 
 ### Backend:
 ```bash
@@ -87,7 +97,7 @@ cd flask-backend/
 python main.py  # or run with Flask
 ```
 
-Make sure `flask-cors`, `graphene`, `flask-graphql`, and `pandas` are installed.
+Make sure `flask-cors`, `graphene`, `flask-graphql`, and `pandas` are installed. 
 
 Deploy via Heroku GitHub integration (set root folder to this repo).
 
@@ -100,25 +110,25 @@ npm start
 
 ---
 
-## Deployment Tips
+## 🔁 Deployment Tips
 
 ### Git Flow:
 - Keep frontend and backend in separate GitHub repos OR clearly separated folders.
 - Be mindful of which folder you're committing/pushing from.
-- Push backend changes to the repo linked to Heroku.
-- Push frontend changes to the repo linked to Netlify or Vercel.
+- Push backend changes to the `PowerGridBackend` repo (linked to Heroku).
+- Push frontend changes to the `PowerGrid` repo (linked to Netlify or Vercel).
 
 ### Fresh Checkout:
 ```bash
-git clone https://github.com/your-username/PowerGrid.git
+git clone https://github.com/fullerar/PowerGrid.git
 cd PowerGrid
 # Backend as subfolder:
-git clone https://github.com/your-username/PowerGridBackend.git flask-backend
+git clone https://github.com/fullerar/PowerGridBackend.git flask-backend
 ```
 
 ---
 
-## Next Ideas
+## 🚀 Next Ideas
 - Add dropdown filtering in React
 - Add charts (e.g., Chart.js or Recharts)
 - Zone switching on backend
@@ -129,5 +139,3 @@ git clone https://github.com/your-username/PowerGridBackend.git flask-backend
 
 ## 📄 License
 MIT License
-
-
