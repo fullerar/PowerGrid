@@ -4,12 +4,44 @@ A full-stack project for visualizing real-time power grid data. It combines a Fl
 
 ---
 
+## 🧪 Getting Started
+
+### 1. Clone Both Repositories
+```bash
+# Clone frontend project
+git clone https://github.com/fullerar/PowerGrid.git
+cd PowerGrid
+
+# Clone backend project into a subfolder
+git clone https://github.com/fullerar/PowerGridBackend.git flask-backend
+```
+
+### 2. Set Up the Backend
+```bash
+cd flask-backend
+pip install -r requirements.txt
+python main.py  # Or run with Flask depending on your setup
+```
+- Make sure to include required packages like Flask, GraphQL, Flask-CORS, pandas
+- Verify the GraphQL endpoint is live at: `http://localhost:5000/graphql`
+
+### 3. Set Up the Frontend
+```bash
+cd ../react-frontend
+npm install
+npm start
+```
+- This runs the React development server at `http://localhost:3000`
+- Apollo Client in `App.js` should be configured to point to your local or deployed backend (e.g., `http://localhost:5000/graphql` or the Heroku URL)
+
+---
+
 ## 📁 Repository Structure
 
 This project is split into **two separate GitHub repositories**:
 
-- **Frontend:** [`PowerGrid`](https://github.com/your-username/PowerGrid) — contains the React dashboard
-- **Backend:** [`PowerGridBackend`](https://github.com/your-username/PowerGridBackend) — contains the Flask + GraphQL API
+- **Frontend:** [`PowerGrid`](https://github.com/fullerar/PowerGrid) — contains the React dashboard
+- **Backend:** [`PowerGridBackend`](https://github.com/fullerar/PowerGridBackend) — contains the Flask + GraphQL API
 
 You can clone them into sibling folders or nest the backend inside the frontend project as needed.
 
@@ -56,17 +88,20 @@ PowerGrid/                  # Main frontend repo
 
 ### Backend (Heroku):
 - Flask app is hosted on Heroku.
-- GraphQL endpoint is available at: `https://power-grid-20fa5a2c3507.herokuapp.com/`
+- GraphQL endpoint is available at: `https://power-grid-20fa5a2c3507.herokuapp.com/graphql`
 - Automatically deployed via GitHub connection to `PowerGridBackend` repo.
 
-### Frontend (React):
-- Hosted on Netlify (or Vercel).
-- Apollo Client connects to the GraphQL API using the Heroku endpoint.
-- Configure the endpoint in `src/App.js`:
+### Frontend (React + Netlify):
+- Hosted on Netlify using the `PowerGrid` GitHub repo.
+- During Netlify setup, specify:
+  - **Base directory**: `react-frontend`
+  - **Build command**: `npm run build`
+  - **Publish directory**: `build`
+- Apollo Client in `App.js` connects to the Heroku GraphQL API using the deployed URL:
 
 ```js
 const client = new ApolloClient({
-  uri: "https://your-heroku-backend.herokuapp.com/graphql",
+  uri: "https://power-grid-20fa5a2c3507.herokuapp.com/graphql",
   cache: new InMemoryCache()
 });
 ```
@@ -80,6 +115,7 @@ const client = new ApolloClient({
 - Data processed with `pandas`
 - GraphQL API built with `graphene`
 - Supports filtering by energy source via query variables
+- Simple in-memory caching (~5 minutes)
 - Flask CORS enabled to allow frontend communication
 
 ### Frontend:
