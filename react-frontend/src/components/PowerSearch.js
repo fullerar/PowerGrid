@@ -71,8 +71,8 @@ function PowerSearch() {
           <table style={{ marginTop: '1.5rem', width: '100%', borderCollapse: 'collapse' }}>
             <thead>
               <tr>
-                <th style={{ textAlign: 'left', borderBottom: '1px solid #555', padding: '0.5rem 0' }}>...</th>
-                <td style={{ padding: '0.5rem 0', borderBottom: '1px solid #333' }}>{source.name}</td>
+                <th style={{ textAlign: 'left', borderBottom: '1px solid #555', padding: '0.5rem 0' }}>Energy Source</th>
+                <th style={{ textAlign: 'left', borderBottom: '1px solid #555', padding: '0.5rem 0' }}>Power (MW)</th>
               </tr>
             </thead>
             <tbody>
