@@ -9,7 +9,7 @@ function LatestChart({ data }) {
   return (
     <div style={{ width: '100%', height: 300 }}>
       <h4>⚡ Energy Mix (Latest)</h4>
-      <ResponsiveContainer>
+      <ResponsiveContainer width="100%" height={300}>
         <BarChart data={data} layout="vertical" margin={{ top: 5, right: 30, left: 80, bottom: 5 }}>
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis type="number" label={{ value: 'MW', position: 'insideBottomRight', offset: -5 }} />
