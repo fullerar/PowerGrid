@@ -15,7 +15,7 @@ function PowerSearch() {
 
   const handleSearch = (e) => {
     e.preventDefault();
-    refetch({ name: filter.trim() || '', zone: newZone });
+    refetch({ name: filter.trim() || '', zone: zone });
   };
 
     return (
