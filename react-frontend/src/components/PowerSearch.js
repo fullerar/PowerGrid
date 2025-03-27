@@ -3,16 +3,19 @@ import React, { useState } from 'react';
 import { useQuery } from '@apollo/client';
 import { GET_SOURCES } from '../graphql/queries';
 import LatestChart from './LatestChart';
+import ZoneSelector from './ZoneSelector';
+
 
 function PowerSearch() {
   const [filter, setFilter] = useState('');
+  const [zone, setZone] = useState('US-MIDA-PJM');
   const { loading, error, data, refetch } = useQuery(GET_SOURCES, {
-    variables: { name: '' }, // default load all
+    variables: { name: '', zone }, // default load all
   });
 
   const handleSearch = (e) => {
     e.preventDefault();
-    refetch({ name: filter.trim() || null });
+    refetch({ name: filter.trim() || null, zone });
   };
 
     return (
@@ -23,6 +26,7 @@ function PowerSearch() {
           borderRadius: '8px',
           boxShadow: '0 0 10px rgba(0,0,0,0.5)' }}>
         {/* Top Row: Text on left, Chart on right */}
+        <ZoneSelector selectedZone={zone} onChange={setZone} />
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
           <div style={{ flex: 1, marginRight: '2rem' }}>
             <h3>🔎 Search for an Energy Source</h3>
