@@ -1,18 +1,17 @@
 import React from 'react';
 
-// List of zones (you could also import this from a JSON file later)
+// List of zones
 const zones = {
   "US-MIDA-PJM": "PJM Interconnection",
-  "US-CAL-CISO": "CAISO",
-  "US-TEX-ERCO": "Electric Reliability Council of Texas",
-  "US-NE-ISNE": "ISO New England",
-  "CA-ON": "Ontario",
-  "DE": "Germany",
-  "FR": "France",
-  "IN": "Mainland India",
-  "JP": "Japan",
-  "CN": "China",
-  // Add more as needed (you can extract from your full list programmatically later)
+  "US-CAL-CISO": "CAISO (Pro only)",
+  "US-TEX-ERCO": "Electric Reliability Council of Texas (Pro only)",
+  "US-NE-ISNE": "ISO New England (Pro only)",
+  "CA-ON": "Ontario (Pro only)",
+  "DE": "Germany (Pro only)",
+  "FR": "France (Pro only)",
+  "IN": "Mainland India (Pro only)",
+  "JP": "Japan (Pro only)",
+  "CN": "China (Pro only)",
 };
 
 function ZoneSelector({ selectedZone, onChange }) {
