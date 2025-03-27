@@ -10,12 +10,12 @@ function PowerSearch() {
   const [filter, setFilter] = useState('');
   const [zone, setZone] = useState('US-MIDA-PJM');
   const { loading, error, data, refetch } = useQuery(GET_SOURCES, {
-    variables: { name: '', zone }, // default load all
+    variables: { name: filter.trim() || null, zone },
   });
 
   const handleSearch = (e) => {
     e.preventDefault();
-    refetch({ name: filter.trim() || null, zone });
+    refetch({ name: filter.trim() || '', zone: newZone });
   };
 
     return (
