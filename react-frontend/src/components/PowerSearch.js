@@ -81,6 +81,10 @@ function PowerSearch() {
         {error && <p>Error loading data 😢</p>}
 
         {data && data.sources.length > 0 ? (
+          <>
+            <p style={{ marginTop: '1rem', fontWeight: 'bold' }}>
+              ⚡ Total Output: {data.sources.totalPowerOutput.toFixed(2)} MW
+            </p>
           <table style={{ marginTop: '1.5rem', width: '100%', borderCollapse: 'collapse' }}>
             <thead>
               <tr>
@@ -97,6 +101,7 @@ function PowerSearch() {
               ))}
             </tbody>
           </table>
+          </>
         ) : (
           !loading && (
             <div style={{ marginTop: '1rem', color: '#f39c12' }}>
