@@ -40,7 +40,7 @@ function PowerSearch() {
           </div>
 
           <div style={{ flex: 1, minWidth: '350px', minHeight: '400px' }}>
-            <LatestChart data={data?.sources || []} />
+            <LatestChart data={data?.sources?.sources || []} />
           </div>
         </div>
 
@@ -80,27 +80,27 @@ function PowerSearch() {
         {loading && <p>Loading...</p>}
         {error && <p>Error loading data 😢</p>}
 
-        {data && data.sources.length > 0 ? (
+        {data && data.sources?.sources?.length > 0 ? (
           <>
             <p style={{ marginTop: '1rem', fontWeight: 'bold' }}>
               ⚡ Total Output: {data.sources.totalPowerOutput.toFixed(2)} MW
             </p>
-          <table style={{ marginTop: '1.5rem', width: '100%', borderCollapse: 'collapse' }}>
-            <thead>
-              <tr>
-                <th style={{ textAlign: 'left', borderBottom: '1px solid #555', padding: '0.5rem 0' }}>Energy Source</th>
-                <th style={{ textAlign: 'left', borderBottom: '1px solid #555', padding: '0.5rem 0' }}>Power (MW)</th>
-              </tr>
-            </thead>
-            <tbody>
-              {data.sources.map((source) => (
-                <tr key={source.name}>
-                  <td style={{ padding: '0.5rem 0' }}>{source.name}</td>
-                  <td>{source.power}</td>
+            <table style={{ marginTop: '1.5rem', width: '100%', borderCollapse: 'collapse' }}>
+              <thead>
+                <tr>
+                  <th style={{ textAlign: 'left', borderBottom: '1px solid #555', padding: '0.5rem 0' }}>Energy Source</th>
+                  <th style={{ textAlign: 'left', borderBottom: '1px solid #555', padding: '0.5rem 0' }}>Power (MW)</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {data.sources.sources.map((source) => (
+                  <tr key={source.name}>
+                    <td style={{ padding: '0.5rem 0' }}>{source.name}</td>
+                    <td>{source.power}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </>
         ) : (
           !loading && (
