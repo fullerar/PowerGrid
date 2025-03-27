@@ -22,23 +22,17 @@ function App() {
         padding: '2rem',
         fontFamily: 'Arial, sans-serif'
       }}>
-        <div style={{
-          backgroundColor: '#121212',
-          color: '#f0f0f0',
-          minHeight: '100vh',
-          padding: '2rem',
-          fontFamily: 'Arial, sans-serif'
-        }}>
-          <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
-            <h2 style={{ fontSize: '2rem', fontWeight: '600' }}>
-              ⚡ Power Grid Dashboard
-            </h2>
-          </div>
+        <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
+          <h2 style={{ fontSize: '2rem', fontWeight: '600' }}>
+            ⚡ Power Grid Dashboard
+          </h2>
+        </div>
         <PowerSearch />
         <HistoricalChart />
       </div>
     </ApolloProvider>
   );
 }
+
 
 export default App;
