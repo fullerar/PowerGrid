@@ -26,7 +26,13 @@ function PowerSearch() {
           borderRadius: '8px',
           boxShadow: '0 0 10px rgba(0,0,0,0.5)' }}>
         {/* Top Row: Text on left, Chart on right */}
-        <ZoneSelector selectedZone={zone} onChange={setZone} />
+        <ZoneSelector
+          selectedZone={zone}
+          onChange={(newZone) => {
+            setZone(newZone);
+            refetch({ name: filter.trim() || null, zone: newZone });
+          }}
+        />
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
           <div style={{ flex: 1, marginRight: '2rem' }}>
             <h3>🔎 Search for an Energy Source</h3>
