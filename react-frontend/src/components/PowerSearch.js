@@ -77,6 +77,9 @@ function PowerSearch() {
         {loading && <p>Loading...</p>}
         {error && <p>Error loading data 😢</p>}
 
+        {loading && <p>Loading...</p>}
+        {error && <p>Error loading data 😢</p>}
+
         {data && data.sources.length > 0 ? (
           <table style={{ marginTop: '1.5rem', width: '100%', borderCollapse: 'collapse' }}>
             <thead>
@@ -95,7 +98,11 @@ function PowerSearch() {
             </tbody>
           </table>
         ) : (
-          !loading && <p>No results found.</p>
+          !loading && (
+            <div style={{ marginTop: '1rem', color: '#f39c12' }}>
+              ⚠️ This zone may not be supported on your current ElectricityMap plan.
+            </div>
+          )
         )}
       </div>
     );
