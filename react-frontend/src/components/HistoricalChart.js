@@ -77,5 +77,11 @@ function HistoricalChart({ zone }) {
               stroke={"#" + ((1 << 24) * Math.random() | 0).toString(16).padStart(6, '0')}
               dot={false}
             />
-          ))}
-        </Line
+            ))}
+        </LineChart>
+      </ResponsiveContainer>
+    </div>
+  );
+}
+
+export default HistoricalChart;
