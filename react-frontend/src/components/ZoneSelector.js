@@ -1,16 +1,16 @@
 import React from 'react';
 
 const zones = {
-  "US-MIDA-PJM": "PJM Interconnection",
-  "US-CAL-CISO": "CAISO",
-  "US-TEX-ERCO": "Electric Reliability Council of Texas",
-  "US-NE-ISNE": "ISO New England",
-  "CA-ON": "Ontario",
-  "DE": "Germany",
-  "FR": "France",
-  "IN": "Mainland India",
-  "JP": "Japan",
-  "CN": "China",
+  'US-MIDA-PJM': 'PJM Interconnection',
+  'US-CAL-CISO': 'CAISO',
+  'US-TEX-ERCO': 'Electric Reliability Council of Texas',
+  'US-NE-ISNE': 'ISO New England',
+  'CA-ON': 'Ontario',
+  DE: 'Germany',
+  FR: 'France',
+  IN: 'Mainland India',
+  JP: 'Japan',
+  CN: 'China',
 };
 
 function ZoneSelector({ selectedZone, onChange }) {
@@ -28,7 +28,7 @@ function ZoneSelector({ selectedZone, onChange }) {
           backgroundColor: '#2a2a2a',
           color: '#f0f0f0',
           border: '1px solid #555',
-          borderRadius: '4px'
+          borderRadius: '4px',
         }}
       >
         {Object.entries(zones).map(([code, name]) => (
