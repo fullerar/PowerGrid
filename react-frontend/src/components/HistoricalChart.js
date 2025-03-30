@@ -19,8 +19,21 @@ function formatHistoricalData(rawData) {
   return Object.values(grouped).sort((a, b) => new Date(a.datetime) - new Date(b.datetime));
 }
 
-function HistoricalChart() {
-  const { loading, error, data } = useQuery(GET_HISTORICAL);
+function HistoricalChart({ zone }) {
+    if (zone !== "US-MIDA-PJM") {
+      return (
+        <div style={{
+          marginTop: '2rem',
+          color: '#f39c12',
+          backgroundColor: '#1e1e1e',
+          padding: '1rem',
+          borderRadius: '8px'
+        }}>
+          ⚠️ Historical data for this zone is not available on your current ElectricityMap plan.
+        </div>
+      );
+    }
+  const { loading, error, data } = useQuery(GET_HISTORICAL, { variables: { zone }});
 
   if (loading) return <p>Loading historical data...</p>;
   if (error) return <p>Error loading historical data.</p>;

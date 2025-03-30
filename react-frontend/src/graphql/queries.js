@@ -14,8 +14,8 @@ export const GET_SOURCES = gql`
 
 
 export const GET_HISTORICAL = gql`
-  query {
-    historicalSources {
+  query GetHistorical($zone: String!) {
+    historicalSources(zone: $zone) {
       datetime
       source
       power
