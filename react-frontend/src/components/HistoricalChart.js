@@ -27,7 +27,6 @@ function formatHistoricalData(rawData) {
 
 function HistoricalChart({ zone }) {
     const { loading, error, data } = useQuery(GET_HISTORICAL);
-  });
 
   // Handle unsupported zones *after* the hook
   if (zone !== "US-MIDA-PJM") {
