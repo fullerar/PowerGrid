@@ -26,8 +26,7 @@ function formatHistoricalData(rawData) {
 }
 
 function HistoricalChart({ zone }) {
-  const { loading, error, data } = useQuery(GET_HISTORICAL, {
-    variables: { zone }
+    const { loading, error, data } = useQuery(GET_HISTORICAL);
   });
 
   // Handle unsupported zones *after* the hook

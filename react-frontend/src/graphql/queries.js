@@ -13,11 +13,12 @@ export const GET_SOURCES = gql`
 `;
 
 export const GET_HISTORICAL = gql`
-  query GetHistorical($zone: String!) {
-    historicalSources(zone: $zone) {
+  query {
+    historicalSources {
       datetime
       source
       power
     }
   }
 `;
+
