@@ -26,7 +26,11 @@ function formatHistoricalData(rawData) {
 }
 
 function HistoricalChart({ zone }) {
-  // 🔒 Zone check FIRST — don't fetch if it's unsupported
+  const { loading, error, data } = useQuery(GET_HISTORICAL, {
+    variables: { zone }
+  });
+
+  // Handle unsupported zones *after* the hook
   if (zone !== "US-MIDA-PJM") {
     return (
       <div style={{
@@ -40,11 +44,6 @@ function HistoricalChart({ zone }) {
       </div>
     );
   }
-
-  // ✅ Only runs if zone === US-MIDA-PJM
-  const { loading, error, data } = useQuery(GET_HISTORICAL, {
-    variables: { zone }
-  });
 
   if (loading) return <p>Loading historical data...</p>;
   if (error) return <p>Error loading historical data.</p>;
