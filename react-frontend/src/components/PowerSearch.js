@@ -6,9 +6,8 @@ import LatestChart from './LatestChart';
 import ZoneSelector from './ZoneSelector';
 
 
-function PowerSearch() {
+function PowerSearch({ zone, setZone }) {
   const [filter, setFilter] = useState('');
-  const [zone, setZone] = useState('US-MIDA-PJM');
   const { loading, error, data, refetch } = useQuery(GET_SOURCES, {
     variables: { name: filter.trim() || null, zone },
   });

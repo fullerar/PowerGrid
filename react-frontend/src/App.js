@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   ApolloClient,
   InMemoryCache,
@@ -13,6 +13,8 @@ const client = new ApolloClient({
 });
 
 function App() {
+  const [zone, setZone] = useState("US-MIDA-PJM");
+
   return (
     <ApolloProvider client={client}>
       <div style={{
@@ -22,17 +24,20 @@ function App() {
         padding: '2rem',
         fontFamily: 'Arial, sans-serif'
       }}>
-        <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
+        <div style={{
+          textAlign: 'center',
+          marginBottom: '2rem'
+        }}>
           <h2 style={{ fontSize: '2rem', fontWeight: '600' }}>
             ⚡ Power Grid Dashboard
           </h2>
         </div>
-        <PowerSearch />
-        <HistoricalChart />
+
+        <PowerSearch zone={zone} setZone={setZone} />
+        <HistoricalChart zone={zone} />
       </div>
     </ApolloProvider>
   );
 }
-
 
 export default App;
